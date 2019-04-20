@@ -1,0 +1,9 @@
+Select
+From
+Delete
+Where
+Create Table
+Drop Table
+Insert Into
+Value
+Go

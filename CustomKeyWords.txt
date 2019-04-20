@@ -1,0 +1,9 @@
+Sel
+Frm
+Del
+Whe
+CreTab
+DTab
+InsI
+Val
+G
