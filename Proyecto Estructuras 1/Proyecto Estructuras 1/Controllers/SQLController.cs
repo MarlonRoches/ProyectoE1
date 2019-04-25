@@ -3,23 +3,64 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
+using Proyecto_Estructuras_1.Data;
+
 
 namespace Proyecto_Estructuras_1.Controllers
 {
     public class SQLController : Controller
     {
         // GET: SQL
-        public ActionResult Index()
+        public ActionResult Index(HttpPostedFileBase postedFile)
         {
+            string filePath = string.Empty;
+            if (postedFile != null)
+            {
+                string path = Server.MapPath("~/archivo/");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                filePath = path + Path.GetFileName(postedFile.FileName);              
+                if (Data.Data.Instance.Ini == true)
+                {
+
+                    Data.Data.Instance.CustomSplit(filePath);
+                    Data.Data.Instance.Ini = false;
+                }
+            }
 
             return View();
         }
 
+    
+       
+        public ActionResult pantalla1()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult pantalla1(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
         // GET: SQL/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
+
 
         // GET: SQL/Create
         public ActionResult Create()
