@@ -9,7 +9,7 @@ namespace Proyecto_Estructuras_1.Models
     {
         int Id { get; set; }
         string Marca { get; set; }
-        string Line { get; set; }
+        string Linea { get; set; }
         DateTime SalidaAlMercado { get; set; }
         int CaballosDeFuerza { get; set; }
     }
