@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using Proyecto_Estructuras_1.Models;
 using Proyecto_Estructuras_1.Data;
 
 
@@ -14,23 +15,25 @@ namespace Proyecto_Estructuras_1.Controllers
         // GET: SQL
         public ActionResult Index(HttpPostedFileBase postedFile)
         {
-            string filePath = string.Empty;
-            if (postedFile != null)
-            {
-                string path = Server.MapPath("~/archivo/");
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
-                filePath = path + Path.GetFileName(postedFile.FileName);              
-                if (Data.Data.Instance.Ini == true)
-                {
+            Data.Data.Instance.Palabras_Reservadas();
 
-                    Data.Data.Instance.CustomSplit(filePath);
-                    Data.Data.Instance.Ini = false;
-                }
+            { 
+            //string filePath = string.Empty;
+            //if (postedFile != null)
+            //{
+            //    string path = Server.MapPath("~/archivo/");
+            //    if (!Directory.Exists(path))
+            //    {
+            //        Directory.CreateDirectory(path);
+            //    }
+            //    filePath = path + Path.GetFileName(postedFile.FileName);              
+            //    if (Data.Data.Instance.Ini == true)
+            //    {
+
+            //       // Data.Data.Instance.CustomSplit(filePath);
+            //        Data.Data.Instance.Ini = false;
+            //    }
             }
-
             return View();
         }
 
@@ -45,7 +48,7 @@ namespace Proyecto_Estructuras_1.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                var asdada = collection["Texto"];
 
                 return RedirectToAction("Index");
             }
@@ -107,14 +110,17 @@ namespace Proyecto_Estructuras_1.Controllers
         }
 
         // GET: SQL/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult ListaVehiculo()
         {
-            return View();
+            var Pruema = new Vehiculo();
+            Pruema.Id = 0;
+            
+            return View(Data.Data.Instance.ListaVehiculos);
         }
 
         // POST: SQL/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult ListaVehiculo(FormCollection collection)
         {
             try
             {

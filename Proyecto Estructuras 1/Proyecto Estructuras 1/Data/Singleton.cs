@@ -20,6 +20,10 @@ namespace Proyecto_Estructuras_1.Data
         }
         public Dictionary<string, string> Diccionario = new Dictionary<string, string>();
         public bool Ini = true;
+        public LinkedList<Vehiculo> ListaVehiculos = new LinkedList<Vehiculo>();
+
+        public string[] PalabrasReservadas = new string[9];
+
         //lectura de archivo
         internal void CustomSplit(string direccion)
         {
@@ -43,7 +47,19 @@ namespace Proyecto_Estructuras_1.Data
                 objReader.Close();
             }
         }
-            //guardar arbol
+        public void Palabras_Reservadas()
+        {
+            PalabrasReservadas[0] = "Select";
+            PalabrasReservadas[1] = "From";
+            PalabrasReservadas[2] = "Delete";
+            PalabrasReservadas[3] = "Where";
+            PalabrasReservadas[4] = "Create Table";
+            PalabrasReservadas[5] = "Drop Table";
+            PalabrasReservadas[6] = "Insert Into";
+            PalabrasReservadas[7] = "Value";
+            PalabrasReservadas[8] = "Go";
+        }
+        //guardar arbol
 
 
         }

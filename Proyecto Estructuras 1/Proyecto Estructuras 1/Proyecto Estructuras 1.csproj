@@ -132,8 +132,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ArbolB.cs" />
     <Compile Include="Models\Inicio.cs" />
+    <Compile Include="Models\Nodo.cs" />
     <Compile Include="Models\Palabras_Reservadas.cs" />
+    <Compile Include="Models\TextArea.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -175,6 +178,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SQL\Index.cshtml" />
     <Content Include="Views\SQL\pantalla1.cshtml" />
+    <Content Include="Views\SQL\ListaVehiculo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

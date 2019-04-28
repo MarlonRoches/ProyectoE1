@@ -11,10 +11,12 @@
 
 @using (Html.BeginForm("Index", "SQL", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    
     <input type="file" name="postedFile" />
     <input type="submit" value="Trabajar con su nuevo diccionario" />
 }
         </th>
     </tr>
+    
     @Html.ActionLink("Pantalla1","pantalla1")
     </table>
