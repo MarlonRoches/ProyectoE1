@@ -13,27 +13,28 @@ namespace Proyecto_Estructuras_1.Controllers
     public class SQLController : Controller
     {
         // GET: SQL
+        // Recordatorio comoner el index ayuda lab 4  -...\--
         public ActionResult Index(HttpPostedFileBase postedFile)
         {
             Data.Data.Instance.Palabras_Reservadas();
 
-            { 
-            //string filePath = string.Empty;
-            //if (postedFile != null)
-            //{
-            //    string path = Server.MapPath("~/archivo/");
-            //    if (!Directory.Exists(path))
-            //    {
-            //        Directory.CreateDirectory(path);
-            //    }
-            //    filePath = path + Path.GetFileName(postedFile.FileName);              
-            //    if (Data.Data.Instance.Ini == true)
-            //    {
+            {
+                string filePath = string.Empty;
+                if (postedFile != null)
+                {
+                    string path = Server.MapPath("~/archivo/");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    filePath = path + Path.GetFileName(postedFile.FileName);
+                    if (Data.Data.Instance.Ini == true)
+                    {
 
-            //       // Data.Data.Instance.CustomSplit(filePath);
-            //        Data.Data.Instance.Ini = false;
-            //    }
-            }
+                        // Data.Data.Instance.CustomSplit(filePath);
+                        Data.Data.Instance.Ini = false;
+                    }
+                }
             return View();
         }
 
@@ -43,12 +44,19 @@ namespace Proyecto_Estructuras_1.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param coleccion de la vista ="collection"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult pantalla1(FormCollection collection)
         {
+            
             try
             {
-                var asdada = collection["Texto"];
+                var operacion = collection["Texto"];
+                Data.Data.Instance.split_linea(operacion);
 
                 return RedirectToAction("Index");
             }

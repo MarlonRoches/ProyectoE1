@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.IO;
 using Proyecto_Estructuras_1.Models;
+using System.Web.Mvc;
 
 namespace Proyecto_Estructuras_1.Data
 {
@@ -47,15 +48,58 @@ namespace Proyecto_Estructuras_1.Data
                 objReader.Close();
             }
         }
+        /// <summary>
+        /// <param enviada del controlador ="operacion"></param>
+        /// 
+        /// </summary>
+        public void split_linea(string operacion)
+        {
+            string captura = operacion;
+            string[] arreglo = captura.Split(' ');
+            string[] arreglo2 = captura.Split('\n');
+            string CompletarInstruccion = arreglo[1];
+            foreach (var item in arreglo)
+            {
+                switch (item)
+                {
+                    case "Select":
+                        
+                        palabra(CompletarInstruccion);
+                        break;
+                    case "From":
+                        break;
+                    case "Delete":
+                        break;
+                    case "Where":
+                        break;
+                    case "Create_Table":
+                        break;
+                    case "Drop_Table":
+                        break;
+                    case "Insert_Into":
+                        break;
+                    case "Value":
+                        break;
+                    case "Go":
+                        break;
+
+                }
+            }
+        }
+        public string palabra(string P)
+        {
+            string Thor = P;
+            return Thor;
+        }
         public void Palabras_Reservadas()
         {
             PalabrasReservadas[0] = "Select";
             PalabrasReservadas[1] = "From";
             PalabrasReservadas[2] = "Delete";
             PalabrasReservadas[3] = "Where";
-            PalabrasReservadas[4] = "Create Table";
-            PalabrasReservadas[5] = "Drop Table";
-            PalabrasReservadas[6] = "Insert Into";
+            PalabrasReservadas[4] = "Create_Table";
+            PalabrasReservadas[5] = "Drop_Table";
+            PalabrasReservadas[6] = "Insert_Into";
             PalabrasReservadas[7] = "Value";
             PalabrasReservadas[8] = "Go";
         }
