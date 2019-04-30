@@ -24,7 +24,12 @@ namespace Proyecto_Estructuras_1.Data
         public LinkedList<Vehiculo> ListaVehiculos = new LinkedList<Vehiculo>();
 
         public string[] PalabrasReservadas = new string[9];
-
+        
+        public void ArchivoPredeterminado()
+        {
+            string Origen = "~/ProyectoE1/";
+            CustomSplit(Origen);
+        }
         //lectura de archivo
         internal void CustomSplit(string direccion)
         {
@@ -62,8 +67,7 @@ namespace Proyecto_Estructuras_1.Data
             {
                 switch (item)
                 {
-                    case "Select":
-                        
+                    case "Select":                        
                         palabra(CompletarInstruccion);
                         break;
                     case "From":

@@ -14,11 +14,16 @@ namespace Proyecto_Estructuras_1.Controllers
     {
         // GET: SQL
         // Recordatorio comoner el index ayuda lab 4  -...\--
+        public ActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult Index(HttpPostedFileBase postedFile)
         {
-            Data.Data.Instance.Palabras_Reservadas();
+           // Data.Data.Instance.Palabras_Reservadas();
 
-            {
+           // {
                 string filePath = string.Empty;
                 if (postedFile != null)
                 {
@@ -27,23 +32,28 @@ namespace Proyecto_Estructuras_1.Controllers
                     {
                         Directory.CreateDirectory(path);
                     }
-                    filePath = path + Path.GetFileName(postedFile.FileName);
-                    if (Data.Data.Instance.Ini == true)
-                    {
+                filePath = path + Path.GetFileName(postedFile.FileName);
+                string extension = Path.GetExtension(postedFile.FileName);
+                postedFile.SaveAs(filePath);
+                string csvData = System.IO.File.ReadAllText(filePath);
+                if (Data.Data.Instance.Ini == true)
+                {
 
-                        // Data.Data.Instance.CustomSplit(filePath);
-                        Data.Data.Instance.Ini = false;
-                    }
+                    Data.Data.Instance.CustomSplit(filePath);
+                    Data.Data.Instance.Ini = false;
                 }
-            return View();
-        }
+            }
+                
+                return View();
+            //}
 
+        }
     
        
-        public ActionResult pantalla1()
-        {
-            return View();
-        }
+        //public ActionResult pantalla1()
+        //{
+        //    return View();
+        //}
         /// <summary>
         /// 
         /// </summary>
