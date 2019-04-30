@@ -7,13 +7,12 @@
 <h2>pantalla1</h2>
 
 <style>
-    
 </style>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Consola</h4>
         <hr />
@@ -37,8 +36,8 @@
     </div>
 }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-        @Html.ActionLink("Pantalla1", "pantalla1")
-        @Html.ActionLink("GridView", "ListaVehiculo")
-    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Pantalla1", "pantalla1")
+    @Html.ActionLink("GridView", "ListaVehiculo")
+</div>
