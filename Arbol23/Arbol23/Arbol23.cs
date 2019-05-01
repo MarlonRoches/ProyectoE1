@@ -8,9 +8,6 @@ namespace Arbol23
 {
     class Arbol23
     {
-
-
-
         public Nodo23 Raiz = new Nodo23();
         /// <summary>
         /// Devuelve un bool el cual indica si es padre o no
@@ -61,8 +58,7 @@ namespace Arbol23
                     }
                     else
                     {
-                        
-
+                        Separar(Actual, Nuevo);
                         // else lleno, separar
                     }
                 }
@@ -76,7 +72,6 @@ namespace Arbol23
         }
         public Nodo23 Navegar (Nodo23 Actual , Vehiculo Nuevo)
         {
-           
             if (EstaLleno(Actual) ==false)
             {
 
@@ -101,11 +96,34 @@ namespace Arbol23
                 return Actual;
             }
         }
-
-
-        public void SepararRaiz(Nodo23 Raiz)
+        public void Separar(Nodo23 actual, Vehiculo nuevo)
         {
+            if (EsPadre(actual))
+            {
+                //aqui se separaria la raiz
+            }
+            else
+            {
+                Vehiculo[] Aux = new Vehiculo[3];
+                Nodo23 Hijo1 = new Nodo23();
+                Nodo23 Hijo2 = new Nodo23();
+                Nodo23 NuevaRAiz = new Nodo23();
+                actual.Valores[0] = Aux[0];
+                actual.Valores[1] = Aux[1];
+                nuevo = Aux[2];
+                // ORDENBAR AUX
 
+                NuevaRAiz.Valores[0] = Aux[0];
+                Hijo1.Valores[0] = Aux[1];
+                Hijo2.Valores[0] = Aux[2];
+                Raiz = null;
+                NuevaRAiz.Hijos[0] = Hijo1;
+                NuevaRAiz.Hijos[1] = Hijo2;
+                Hijo1.Padre = Raiz;
+                Hijo2.Padre = Raiz;
+                Raiz = NuevaRAiz;
+                
+            }
         }
     }
 }
