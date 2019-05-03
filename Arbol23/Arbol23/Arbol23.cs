@@ -104,25 +104,24 @@ namespace Arbol23
             }
             else
             {
+                //PRIMera Separacion
                 Vehiculo[] Aux = new Vehiculo[3];
                 Nodo23 Hijo1 = new Nodo23();
                 Nodo23 Hijo2 = new Nodo23();
                 Nodo23 NuevaRAiz = new Nodo23();
-                actual.Valores[0] = Aux[0];
-                actual.Valores[1] = Aux[1];
-                nuevo = Aux[2];
-                // ORDENBAR AUX
-
-                NuevaRAiz.Valores[0] = Aux[0];
-                Hijo1.Valores[0] = Aux[1];
+                Aux[0] = actual.Valores[0];
+                Aux[1] = actual.Valores[1];
+                Aux[2] = nuevo;
+                //ORDENAR VECTOR
+                NuevaRAiz.Valores[0] = Aux[1];
+                Hijo1.Valores[0] = Aux[0];
                 Hijo2.Valores[0] = Aux[2];
-                Raiz = null;
                 NuevaRAiz.Hijos[0] = Hijo1;
                 NuevaRAiz.Hijos[1] = Hijo2;
-                Hijo1.Padre = Raiz;
-                Hijo2.Padre = Raiz;
+                NuevaRAiz.Hijos[0].Padre = Raiz;
+                NuevaRAiz.Hijos[1].Padre = Raiz;
+                Raiz.Valores = NuevaRAiz.Valores;
                 Raiz = NuevaRAiz;
-                
             }
         }
     }
