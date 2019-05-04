@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Arbol23
+namespace ArbolB
 {
-    public class Vehiculo : IComparable
+    public class Vehiculo : IEnumerable
     {
         [DisplayName("No. Citas")]
         public int Id { get; set; }
@@ -19,6 +20,11 @@ namespace Arbol23
         {
             var comparable = (Vehiculo)obj;
             return Id.CompareTo(comparable.Id);
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
