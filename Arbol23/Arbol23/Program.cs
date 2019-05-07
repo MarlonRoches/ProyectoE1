@@ -14,12 +14,14 @@ namespace ArbolB
            ArbolB Arbol = new ArbolB();
 
 
-            string[] lineas = File.ReadAllLines("C:\\Users\\roche\\Desktop\\ARBOL B - copia\\Arbol-B\\CSVPrueba.csv");
+            string[] lineas = File.ReadAllLines("C:\\Users\\roche\\Desktop\\ProyectoE1\\CSVPrueba.csv");
 
             foreach (var linea in lineas)
             {
-                Vehiculo Dato = new Vehiculo();
-                Dato.Id = int.Parse(linea);
+                Vehiculo Dato = new Vehiculo
+                {
+                    Id = int.Parse(linea)
+                };
                 Arbol.Insertar(Arbol.Raiz, Dato);
             }
 

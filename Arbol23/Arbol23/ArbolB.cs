@@ -70,6 +70,7 @@ namespace ArbolB
                 Nodo = Raiz;
             }
             //ES HOJA
+
             else if (Hay_HIjos(Nodo) == false)
             {
                 AgregarYOrdenarNodo(valor, Nodo);
