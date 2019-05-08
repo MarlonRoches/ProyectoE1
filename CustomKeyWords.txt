@@ -1,9 +1,9 @@
-Sel
-Frm
-Del
-Whe
-CreTab
-DTab
-InsI
-Val
-G
+Select,Seleccionar
+From,De
+Delete,Eliminar
+Where,Donde
+Create Table,Crear Tabla
+Drop Table,Tirar Tabla
+Insert Into,Insertar En
+Value,Valor
+Go,Ve
