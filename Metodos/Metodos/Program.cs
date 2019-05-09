@@ -4,38 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-
+using System.Reflection;
 namespace Metodos
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var Diccionario = new string[9];
-            var Obj = new StreamReader("C:\\Users\\roche\\Desktop\\ProyectoE1\\KeyWords.txt");
-
-            LLenarDiccionario(Obj);
-            Console.ReadLine();
-            Console.WriteLine("Escriba Lo que decea hacer.");
-            Instert(Console.ReadLine());
-            void Instert(string linea)
+            Type tipo = typeof(Vehiculo);
+            FieldInfo[] Variables = tipo.GetFields();
+            foreach (var variable in Variables)
             {
+                string nombre = variable.Name;
+                object temp = variable.GetValue(null);
 
-            }
-
-            //♪
-             void LLenarDiccionario(StreamReader T)
-            {
-                int i = 0;
-                var texto = T.ReadLine();
-                while (texto != null)
-                {
-                    Diccionario[i] = texto;
-                    texto = T.ReadLine();
-                    i++;
-                }
             }
         }
-        
+        class Vehiculo
+            {
+             public int Valor;
+            }
     }
 }
