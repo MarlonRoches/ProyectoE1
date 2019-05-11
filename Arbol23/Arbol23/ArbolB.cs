@@ -18,8 +18,7 @@ namespace ArbolB
         {
             Raiz = null;
 
-        }
-        
+        }        
         /// <summary>
         /// Verifica si el nodo actual tiene hijos
         /// </summary>
